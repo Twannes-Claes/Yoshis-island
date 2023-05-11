@@ -36,7 +36,7 @@ void ThrowedEggManager::Update(float elapsedSec, float gravity, const Level& lev
 	for (size_t i = 0; i < m_pItems.size(); i++)
 	{
 		bool isDestroyed{};
-		for (int j{}; j < enemyShape.size(); ++j)
+		for (size_t j{}; j < enemyShape.size(); ++j)
 		{
 			Rectf coreEnemy{};
 			coreEnemy.left = enemyShape[j].left + enemyShape[j].width * 0.05f;

@@ -155,7 +155,7 @@ void ShyGuy::HandleGroundCollision(const std::vector<std::vector<Point2f>>& vert
 		Point2f rayBottomVertical1{ m_Shape.left + m_Shape.width / 2, m_Shape.bottom + m_Shape.height * 0.12f };
 		Point2f rayBottomVertical2{ m_Shape.left + m_Shape.width / 2, m_Shape.bottom - 1 };
 
-		for (int i{}; i < vertices.size(); ++i)
+		for (size_t i{}; i < vertices.size(); ++i)
 		{
 			//RayCastFeet
 			if (utils::Raycast(vertices[i], rayBottomVertical1, rayBottomVertical2, hitInfo))

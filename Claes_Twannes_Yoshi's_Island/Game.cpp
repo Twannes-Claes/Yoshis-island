@@ -47,21 +47,16 @@ void Game::Cleanup()
 
 void Game::Update( float elapsedSec )
 {
+	if (m_pHUD->GetGameState() == HUD::GameState::playingLevel || m_pHUD->GetGameState() == HUD::GameState::transitionToLevel)
+	{
+		m_pAvatar->Update(elapsedSec, *m_pLevel, *m_pHUD);
 
+		m_pLevel->Update(elapsedSec);
 
-		if (m_pHUD->GetGameState() == HUD::GameState::playingLevel || m_pHUD->GetGameState() == HUD::GameState::transitionToLevel)
-		{
-			m_pAvatar->Update(elapsedSec, *m_pLevel, *m_pHUD);
+		m_pCamera->Update(elapsedSec,m_pLevel->CanZoom());
+	}
 
-			m_pLevel->Update(elapsedSec);
-
-			m_pCamera->Update(elapsedSec,m_pLevel->CanZoom());
-		}
-
-		m_pHUD->UpdateFrames(elapsedSec, m_pLevel->HasReachedEnd(m_pAvatar->GetShape()));
-		
-	std::cout << "FPS: " << 1 / elapsedSec << '\n';
-
+	m_pHUD->UpdateFrames(elapsedSec, m_pLevel->HasReachedEnd(m_pAvatar->GetShape()));
 }
 
 void Game::Draw() const

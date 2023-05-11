@@ -201,7 +201,7 @@ void Level::HandleCollision(Rectf& actorShape, Vector2f& actorVelocity, SoundEff
 
 	m_IsOnGround = false;
 	
-	for (int i{}; i < m_Vertices.size(); ++i)
+	for (size_t i{}; i < m_Vertices.size(); ++i)
 	{
 		if (actorVelocity.y <= 0)
 		{
@@ -271,7 +271,7 @@ void Level::HandleCollision(Rectf& actorShape, Vector2f& actorVelocity, SoundEff
 
 bool Level::IsOnGround(const Rectf& actorShape, Vector2f& actorVelocity, float& jumpSpeed, const float& normalJumpSpeed) const
 {
-	for (int i{}; i < m_Vertices.size(); ++i)
+	for (size_t i{}; i < m_Vertices.size(); ++i)
 	{
 		if (m_IsOnGround)
 		{
